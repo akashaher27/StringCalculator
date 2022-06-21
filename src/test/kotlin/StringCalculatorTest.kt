@@ -26,5 +26,12 @@ class StringCalculatorTest {
         assertEquals(2, calculator.add("1,1"))
     }
 
+    @Test
+    fun multipleNumberStringReturnSum() {
+        assertEquals(3, calculator.add("1,2"))
+        assertEquals(6, calculator.add("1,2,3"))
+        assertEquals(5, calculator.add("1,4"))
+        assertEquals(5, calculator.add("1,1,1,1,1"))
+    }
 
 }
