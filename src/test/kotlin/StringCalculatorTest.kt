@@ -21,4 +21,10 @@ class StringCalculatorTest {
         assertEquals(1, calculator.add("1"))
     }
 
+    @Test
+    fun twoNumberStringReturnSum() {
+        assertEquals(2, calculator.add("1,1"))
+    }
+
+
 }
