@@ -22,7 +22,7 @@ class StringCalculatorTest {
     }
 
     @Test
-    fun twoNumberStringReturnSum() {
+    fun twoNumberStringWithDelimeterCommaReturnSum() {
         assertEquals(2, calculator.add("1,1"))
     }
 
@@ -32,6 +32,16 @@ class StringCalculatorTest {
         assertEquals(6, calculator.add("1,2,3"))
         assertEquals(5, calculator.add("1,4"))
         assertEquals(5, calculator.add("1,1,1,1,1"))
+    }
+
+    @Test
+    fun numberDelimitedByCommaAndNewLineReturnSum() {
+        assertEquals(6, calculator.add("1,2\n3"))
+    }
+
+    @Test
+    fun numberDelimitedByCustomDelimitersReturnSum() {
+        assertEquals(3, calculator.add("//;\n1;2"))
     }
 
 }
