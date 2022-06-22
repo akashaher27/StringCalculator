@@ -1,5 +1,6 @@
 import org.junit.Before
 import org.junit.Test
+import org.junit.jupiter.api.Assertions
 import kotlin.test.assertEquals
 
 class StringCalculatorTest {
@@ -47,5 +48,13 @@ class StringCalculatorTest {
         assertEquals("Negative numbers not allowed -1", calculator.add("//;\n-1;2").expectFailure().message)
     }
 
+    @Test
+    fun numberGreater1000ShouldIgnore() {
+        assertEquals(1001, calculator.add("2000,1000,1").expectSuccess())
+    }
 
+    @Test
+    fun numberWithVariableSizeDelimeterReturnSum() {
+        assertEquals(6, calculator.add("//[***]\n1***2***3").expectSuccess())
+    }
 }

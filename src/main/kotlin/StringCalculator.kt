@@ -5,9 +5,8 @@ class StringCalculator {
             return Success(0)
         }
         return number.toNumbers().validate().mapSuccess {
-            it.sum()
+            it.removeNumbersGreaterThan1000().sum()
         }
     }
-
 
 }
