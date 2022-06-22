@@ -1,9 +1,13 @@
 class StringCalculator {
 
-    fun add(number: String): Int {
+    fun add(number: String): Result<Throwable, Int> {
         if (number.isEmpty()) {
-            return 0
+            return Success(0)
         }
-        return number.toNumbers().sum()
+        return number.toNumbers().validate().mapSuccess {
+            it.sum()
+        }
     }
+
+
 }
